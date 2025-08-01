@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" ></script>
+<script>
+
+	// js와 jquery를 연결
+	$(function(){
+		$('#name').val('Hello 제이쿼리!!');
+	
+	
+	let name2 = document.getElementById('name2');
+	name2.value = 'hello 제이쿼리!! 두번째 텍스트';
+	
+	
+	// jquery 문법 $를 이용해서 찾을때는 배열에 담긴다
+	// js와 연결해서 쓸때는 배열로 ([]) 사용해야 한다
+	let name = $('#name')	
+	//alert(name.value);	//undefined
+	alert(name[0].value);
+	
+	})
+</script>
+</head>
+<body>
+	<form id = "frm">
+		<input type="text" id="name"/>
+		<input type="text" id="name2"/>
+		<input type="password" />
+		<input type="radio" />
+		<input type="checkbox" />
+		<input type="file" />
+		
+	</form>
+</body>
+</html>

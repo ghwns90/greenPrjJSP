@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- jquery cdn : jquery 라이브러리를 인터넷에서 다운받겠다 -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script>
+// window.onload 는 여러번 사용할 수 없다
+	$(function(){	// 이것도 window.onload 를 jquery 식으로
+		//alert('하핳하');
+	})
+	
+	$(function(){
+		//alert('하핳하');
+	})
+	
+	$(function(){
+		//$('div').html('<h1>Hello</h1>');	// .innerHTML = '';
+		//$('div').eq(0).html('<h1>Hello</h1>'); // 첫번째 div (0~())
+		//$('div:first-child').css('color','orange'); // 첫번째 자식이 div 일때
+		//$('div:nth-of-type(1)').css('color','orange') // div중에 첫번째
+		
+		$('.item').css('color','orange');
+		$('.item.select').css('background-color', 'cyan');
+		
+		//버튼 클릭
+		$('button').on('click', function(){	// 이벤트 추가
+			//$('#output').html('<h2>hello</h2>');
+			$('#output').append('<h2>hello</h2>');
+			$('button').off('click');	// 이벤트 제거
+		})
+		
+		// .css('color', 'red') : .style.color = 'red';
+		// .text() : innerText
+		// .html() : .innerHTML =
+		// .append() : .innerHTML +=
+		// on('click', function(){}) : addEventListener()
+		// off('click', function(){}) : removeEventListener()
+		// once('click', function(){}) : 한번만 이벤트를 등록
+		
+	})
+</script>
+</head>
+<body>
+	<div class = "item">Div 1</div>
+	<div class = "item select">Div 2</div>
+	<div class = "item">Div 3</div>
+	<div class = "item">Div 4</div>
+	<button>Ok</button>
+	<div id="output"></div>
+</body>
+</html>

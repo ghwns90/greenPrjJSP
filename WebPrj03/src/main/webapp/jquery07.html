@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" ></script>
+<script>
+	$(function(){
+		/*
+		$('h1').filter(':even').css({	//0~ : 짝수
+			'background-color' : 'black',
+			'color' 		   : 'white'
+		})
+		*/
+		$('h1').filter(function(index){
+			return index % 3 == 0;
+			//return index <= 5;
+		}).css({
+			background : 'black',
+			color      : 'white'
+		})
+		
+		$('h1').eq(0).css('color', 'cyan') // 첫번째 줄
+		$('h1').eq(-1).css('color', 'cyan')	// 마지막 줄	
+		
+	})
+</script>
+</head>
+<body>
+	<h1>Header-0</h1>
+	<h1>Header-1</h1>
+	<h1>Header-2</h1>
+	<h1>Header-3</h1>
+	<h1>Header-4</h1>
+	<h1>Header-5</h1>
+	<h1>Header-6</h1>
+</body>
+</html>

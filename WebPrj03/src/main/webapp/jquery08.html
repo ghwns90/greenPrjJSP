@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" ></script>
+<script>
+
+	let array = [
+		{name : 'Naver', 	link : 'https://www.naver.com'}, 
+		{name : 'Nate', 	link : 'https://www.nate.com'}, 
+		{name : 'Daum', 	link : 'https://www.daum.net'}, 
+		{name : 'Google', 	link : 'https://www.google.com'}, 
+		{name : 'MS',		link : 'https://www.microsoft.com'}, 
+		
+	];
+
+	$(function(){
+		// 객체 배열 조작
+		let tag = '';
+		$.each(array, function(index, item){
+			tag += '<a href="' + item.link + '">';
+			tag += '<h2>' + item.name + '</h2>';
+			tag += '</a>';
+		});
+		
+		tag += '<select name ="">';
+		$.each(array, function(index, item){
+			
+			tag += '<option value="' + item.link + '">';
+			tag += item.name
+			tag += '</option>'
+		})
+		
+		tag += '</select>';
+		
+		//document.body.innerHTML = tag;
+		$('body').append(tag);
+		
+		$('select>option').on('change', function(){
+			console.log(e);
+		})
+		
+	})
+</script>
+</head>
+<body>
+	<select name="">
+		<option value="http://www.naver.com">Naver</option>
+		<option value="http://www.naver.com">Naver</option>
+		<option value="http://www.naver.com">Naver</option>
+		<option value="http://www.naver.com">Naver</option>
+		<option value="http://www.naver.com">Naver</option>
+	</select>
+</body>
+</html>
