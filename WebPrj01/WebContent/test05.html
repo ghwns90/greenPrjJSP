@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#result {
+		border : 1px solid black;
+		height : 50vh;
+	}
+
+</style>
+</head>
+<body>
+	<h2>성년 체크</h2>
+	<label> 태어난 연도 </label>
+	<input type = "number" id="bYear" value="2000"/>
+	<button id = "btnOk">Ok</button>
+	<div id="result"></div>
+	
+	<script>
+	
+	
+				
+		let btnOk_onclick = function (){
+			
+			btnOkEl.onclick    = btnOk_onclick;
+			let birthYear  	   = bYearEl.value;
+			let thisYear 	   = 2025;
+			let age  	       = thisYear - parseInt(birthYear);
+			let adult		   = (age > 19) ? "성년" : "어린이";
+			let ddi            = '';
+			let ddinum		   = 0;
+			
+			switch( birthYear % 12 ){
+			case 0  : ddi = "원숭이", ddinum = 9; break;
+			case 1  : ddi = "닭", ddinum = 10; break;
+			case 2  : ddi = "개", ddinum = 11; break;
+			case 3  : ddi = "돼지", ddinum = 12; break;
+			case 4  : ddi = "쥐", ddinum = 1; break;
+			case 5  : ddi = "소", ddinum = 2; break;
+			case 6  : ddi = "호랑이", ddinum = 3; break;
+			case 7  : ddi = "토끼", ddinum = 4; break;
+			case 8  : ddi = "용", ddinum = 5; break;
+			case 9  : ddi = "뱀", ddinum = 6; break;
+			case 10 : ddi = "말", ddinum = 7; break;
+			case 11 : ddi = "양", ddinum = 8; break;
+			}
+			
+			let html		   = '<ul>'
+				html		  += '<li>'+ age + '살</li>'
+				html		  += '<li>'+ adult +'</li>'
+				html		  += '<li>'+ ddi +'</li>'
+				html          += "<li><img src ='images/" + ddinum + ".png' alt='" + ddi + "'></li>"
+				html		  += '</ul>';
+			
+			const resultEl	   = document.getElementById('result');
+			resultEl.innerHTML = html
+			
+		}	// 익명함수 : 이름이 없는 함수
+		//--------------------------------------------------------------
+		
+		const bYearEl  	   = document.getElementById('bYear');
+		bYearEl.onchange   = btnOk_onclick
+	
+		const btnOkEl = document.getElementById('btnOk');
+		btnOkEl.onclick	= btnOk_onclick
+	
+		
+		
+	</script>
+</body>
+</html>

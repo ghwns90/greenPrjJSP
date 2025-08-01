@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+function ok1(){
+	alert('1')
+	const div1 = document.getElementsByTagName("div")[0]
+	const output = document.getElementById('output');
+	output.innerHTML = div1.innerHTML;
+	output.style.color = 'green';
+}
+
+function ok2(){
+	alert('2')
+	const div2 = document.querySelector("div:nth-of-type(2)")
+	const output = document.querySelector('#output');
+	output.innerHTML = div2.innerHTML;
+	output.style.color = 'orange';
+}
+
+function ok3(){
+	alert('333333')
+	const div3 = document.querySelectorAll("div")[2]
+	output.innerHTML = div3.innerHTML;
+	output.style.backgroundColor = 'red';
+}
+
+function ok4(){
+	alert('4444444')
+}
+</script>
+
+</head>
+<body>
+	<div>Naver</div>
+	<div>Daum</div>
+	<div>Nate</div>
+	<div>Google</div>
+	<button onclick="ok1()">OK1</button>
+	<button onclick="ok2()">OK2</button>
+	<button id = "btnOk3">OK3</button>
+	<button id = "btnOk4">OK4</button>
+	<div id = "output"></div>
+	<script>
+		const btnOkEls = document.getElementsByTagName('button');
+		btnOkEls[0].onclick = ok1;
+		btnOkEls[1].onclick = ok2;
+		btnOkEls[2].onclick = ok3;
+		btnOkEls[3].onclick = ok4;
+	/*
+		let btnOk2Arr = document.getElementsByTagName('button');
+		btnOk2Arr[1].onclick = ok2;
+		
+		let btnOk3 = document.getElementById('btnOk3')
+		//console.log(btnOk3)
+		console.dir(btnOk3)
+		//alert(btnOk3.innerHTML)
+		btnOk3.onclick = ok3;	// .onclick = 함수명 // 함수명() x
+		
+		//let btnOk4 = document.getElementById('btnOk4')
+		//btnOk4.onclick = ok4;
+		
+		document.getElementById('btnOk4').onclick = ok4;
+		
+	*/	
+	</script>
+	<script>
+	
+		
+	</script>
+</body>
+</html>
