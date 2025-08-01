@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		let obj = {
+				num : 1,
+				name : '가나',
+				tel : '011',
+				output : function(){
+					return this.num + ',' + this.name + ', ' + this.tel;
+				}
+		}
+		
+		console.log(obj);
+		alert(obj);
+		let msg = JSON.stringify(obj); 	// JSON String <- Object
+		// js 객체 != JSON
+		// JSON 은 함수가 포함되지 않는다
+		// JSON 내의 모든 필드는 ""로 표현된다
+		let obj2 = JSON.parse(msg);
+		
+		console.log(msg); // {"num":1,"name":"가나","tel":"011"}
+		console.log(obj2); // Object
+		console.log(typeof(msg));	// string
+		console.log(typeof(obj2));	// object
+		
+		// obj2 에 기능 추가할 수 있다.
+		obj2.disp = function(){
+			alert(this.name + '가 웃는다');
+		}
+		
+		alert(obj2.name);
+		obj2.disp();
+		
+		alert(msg);
+		
+	</script>
+
+</body>
+</html>

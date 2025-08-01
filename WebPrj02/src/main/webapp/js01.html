@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div {
+		border : 1px solid black;
+		font-size : 32px;
+		margin : 20px;
+		padding : 20px;
+	}
+</style>
+
+</head>
+<body>
+	<div id="output"></div>
+	
+	<script>
+		let html = '';
+		var arrA = [273, 32, 103, 57, 52]; //배열
+		console.log(arrA);
+		
+		arrA[20] = 100
+		
+		for (let i = 0; i < arrA.length; i++) {
+			let element = arrA[i];
+			html += element + ",";
+		}
+		
+		html += "<br>"
+				
+		var arrB = new Array();
+		arrB.push('A');
+		arrB.push('C');
+		arrB.push('B');
+		console.log(arrB);
+		html += arrB.pop() + " ";
+		html += arrB.pop() + " ";
+		html += arrB.pop() + " ";
+		html += "<br>";
+				
+		for(let i in arrA){
+			html += arrA[i] + " "
+		}
+		html += '<br>';
+		
+		let cnt = 0;
+		for(const element of [1,2,3,4]){	//foreach
+			html += `${cnt}번째 요소는 ${element}입니다<br>`;
+			cnt++;
+		}
+		
+		const outputEl = document.getElementById("output");
+		outputEl.innerHTML = html;
+	</script>
+</body>
+</html>

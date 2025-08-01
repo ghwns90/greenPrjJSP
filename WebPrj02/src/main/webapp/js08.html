@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	// 생성자 함수
+	function Student(name, kor, eng, mat){
+		//Field
+		this.name = name;
+		this.kor  = kor;
+		this.eng  = eng;
+		this.mat  = mat;
+		
+		// 메소드
+		this.getTot = function(){
+			
+			return this.kor + this.eng + this.mat;
+		}
+		
+		this.getAverage = function(){
+			
+			return this.getTot() / 3;
+			
+		}
+		
+		this.toString   = function(){
+			
+			return this.name + ', ' + this.getTot().toFixed(2) + ', ' + this.getAverage().toFixed(2);
+			
+		}
+	}
+	
+	// 학생 정보 배열
+	let students = [];
+	students.push( new Student('아이유', 100, 90, 80) );
+	students.push( new Student('제니', 80, 70, 80) );
+	students.push( new Student('리사', 90, 100, 100) );
+	students.push( new Student('원영', 100, 100, 60) );
+	
+	let output = '<ul>';
+	for (let student of students) {
+		output += '<li>' + student.toString() + '</li>'
+	}
+	output += '</ul>'
+	window.onload = function(){
+		
+		const div = document.querySelector('div');
+		div.innerHTML = output;
+	
+	}
+</script>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

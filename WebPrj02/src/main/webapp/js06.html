@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload = function (){
+		const formEl = document.querySelector('form');
+		const idEl	 = document.querySelector('[name="id"]')
+		const pwdEl	 = document.querySelector('[name="pwd"]')
+		formEl.onsubmit = function() {
+		//formEl.addEventListener('submit', function(){
+			if(idEl.value == ""){
+				alert('아이디가 없습니다');
+				return false; // submit 이벤트 취소
+			}
+			if(pwdEl.value == ""){
+				alert('패스워드가 없습니다.');
+				return false;
+			}
+			
+			return true;
+			
+		}  //);
+	}
+</script>
+</head>
+<body>
+	<h2> 로그인 </h2>
+	
+	<form action = "js06.jsp" method = "get">
+		아이디<input type = "text" name = "id" />
+		암호  <input type = "password" name = "pwd" />
+		<input type = "submit" value = "로그인(submit)" />
+		<input type = "image" src = "" value = "로그인 (image)"/>
+		<button>로그인(button tag)</button>
+		<input type = "button" value ="로그인(일반버튼)" />
+	</form>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>클래스 상속과 오버라이딩</h2>
+  	 비교  상속과 프로토타입
+   	 https://developer.mozilla.org/ko/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
+	
+	<script>
+		class Animal {
+			
+			constructor(name){
+				this.name = name;
+				this.legs = 4;
+			}
+			
+			move(){
+				console.log('움직인다');
+			}
+			
+			eat(){
+				console.log('먹는다');
+			}
+		}
+		
+		class Cat extends Animal {
+			sound(){
+				console.log('애용');
+			}
+		}
+		
+		const cat1 = new Cat('네로')
+		cat1.move();
+		cat1.eat();
+		cat1.sound();
+		
+		//오버라이딩 - 재정의
+		class Dog extends Animal {
+			constructor(name, age){
+				super(name);
+				//this.name = name;  // 부모클래스에 있는 변수들은 똑같으니가 굳이 칠 필요없음
+				//this.legs = 4;
+				this. age = age;
+			}
+			
+			move(){
+				console.log(this.name + ' 이가' + this.legs + ' 다리로 아장아장');
+			}
+			
+			sound(){
+				console.log(this.age + '살' + this.name + '이가 멍멍'); 
+			}
+		}
+		
+		const baduk = new Dog('바둑', 3);
+		baduk.move();
+		baduk.eat();
+		baduk.sound();
+	</script>
+</body>
+</html>

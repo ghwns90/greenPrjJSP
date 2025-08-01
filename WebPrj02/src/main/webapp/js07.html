@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	// JSON : JavaScript Object Notation 
+	let product = {
+			제품명 : "새우깡",
+			유형   : "스낵",
+			성분   : ["새우쪼금", "밀가루", "설탕"],
+			무게   : 300,
+			제조사 : '넝심',
+			출력   : function(){
+				let msg = '';
+				msg    += this.제품명 + ',';
+				msg    += this.유형 + ',';
+				msg    += this.무게 + ',';
+				alert(msg);
+			}
+	}
+	product.제조일 = new Date()
+	//console.log( product );
+	product.출력();
+	alert(product.제품명+product.제조일.toLocaleString());
+</script>
+</head>
+<body>
+
+</body>
+</html>

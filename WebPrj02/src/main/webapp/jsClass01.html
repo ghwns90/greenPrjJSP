@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		//	ECMAScript 6
+		class User {
+			//생성자
+			constructor(name, age, gender){
+				this.name 	= name
+				this.age  	= age
+				this.gender = gender
+			}
+			getName(){
+				return this.name;
+			}
+			getAge(){
+				return this.age;
+			}
+			getGender(){
+				return this.gender;
+			}
+			
+		}
+		
+		const user1 = new User("Choi", 33, "Male");
+		let msg = '이름 : ' +  user1.getName() + '\n';
+		msg	   += '나이 : ' +  user1.getAge() + '\n';
+		msg    += '성별 : ' +  user1.getGender() + '\n';
+		alert(msg);
+	</script>
+</body>
+</html>

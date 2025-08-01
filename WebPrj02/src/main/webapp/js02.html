@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+	div {border : 1px solid red;}
+</style>
+<script>
+
+	// <script>문을 밑에 쓰던지, window.onload 에 넣어서 위에 쓰던지 가능
+	// 중요한건 HTML 바디부분을 먼저 다 읽은 뒤에 script 가 실행 되게 하는 원리
+	// 창이 다 load 되고 난 후에 function 을 실행한다. 여기에 자바 스크립트 부분을 작성
+	window.onload = function(){
+		
+		const outputEl     = document.querySelector('#output');
+		
+		// 콜백(callback)함수 : 함수의 인자가 함수
+		//1초마다 한번씩 콜백(callback)함수를 반복 실행하는 명령어
+		let id = setInterval(function(){ outputEl.innerHTML = (new Date()).toLocaleString() }
+																							, 1000);	// 1000 : 1초
+																							
+		// 10초 후에 시계를 멈추어라
+		// setTimeout 10초후에 한번만 시행
+		setTimeout(function(){ clearInterval(id)																					
+							 					},5*1000);			
+	}	
+</script>
+
+
+</head>
+<body>
+	<div id = "output">aaa</div>
+	<div id = "output2">aaa</div>	
+	
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>html5</title>
+  <script>
+    window.onload = function() {
+	  var msg = '';
+	  
+	  // 문자정렬
+	 // var arr = [ 1, 3, 1, 9 , 12, 100];
+	  var arr = [ '1', '3', '1', '9' , '12', '100'];
+	  msg += arr + '<br>';
+	  arr.sort(); // 정렬 - 문자로 취급
+	  msg += arr + '<hr>';  // [ 1,1,100,12,3,9 ];
+	  
+	  var arr2  = ['제시카', '리사', '제니', '아이유'];
+	  msg += arr2 + '<br>';
+	  arr2.sort(); // 문자졍렬
+	  msg += arr2 + '<br>';
+	  arr2.reverse();
+	  msg += arr2 + '<hr>';
+	  
+	  // 숫자 졍렬
+	  var arr3 = [ 1, 3, 1, 9 , 12, 100];
+	  msg += arr3 + '<br>';
+	  arr3.sort(function(a, b) {
+	     if(a > b)  return 1;
+		 if(a == b) return 0;
+		 if(a < b)  return -1;
+	  })
+	  msg += arr3 + '<br>';
+	  arr3.sort(function(a, b) {
+		 return b - a;  // descending
+		 //return a - b;  // ascending
+	  });
+	  msg += arr3 + '<hr>';
+	  
+	  // 문자정렬 : 대소문자 무시
+	  const arr4 = ['Car', 'banana', 'bicycle', 'Bowl'];
+	  msg += arr4 + '<br>';
+	  arr4.sort(function(a, b) {
+	     const  aa = a.toUpperCase();
+	     const  bb = b.toUpperCase();		
+		 if(aa > bb )  return  1;
+		 if(aa == bb ) return 0;
+		 if(aa < bb )  return  -1; 
+		 // return aa - bb; // 작동안함
+	  }); // 오름차순
+	  msg += arr4 + '<hr>';
+	  
+	  const arr4_2 = ['Car', 'banana', 'bicycle', 'Bowl'];
+	  
+	  /*
+	  arr4_2.forEach(function(el){	//배열을 값을 바꿀 수 없다.
+		  return el.toUpperCase();
+	  });
+	  */
+	  const array = arr4_2.map(function(el){
+	  		return el.toUpperCase();			  
+	  });
+	  
+	  array.sort(function(a,b){
+		  if( a > b ) return 1;
+		  if( a == b ) return 0;
+		  if( a < b ) return -1;
+	  })
+	  
+	  msg += array + "<br>"
+	  msg += "<hr>"
+	  
+	  // 객체 졍렬
+	  const arr5 = [
+	     {  name:'오렌지',   price:3000  },
+	     {  name:'바나나',   price:1000  },
+	     {  name:'딸기',     price:2000  },
+	     {  name:'파인애플', price:500  }
+	  ];
+	  // msg += arr5 + '<br>'; // [object Object],[object Object],[object Object],[object Object]
+	  msg += JSON.stringify(arr5) + '<br>';
+	     // 자바스크립트 객체를 JSON 문자열로 만든다
+	     // [{"name":"오렌지","price":3000},{"name":"바나나","price":1000},{"name":"딸기","price":2000},{"name":"파인애플","price":5000}]
+	     // var obj = JSON.parse('{  name:'오렌지',   price:3000  }')
+         //     ; JSON 문자열 -> js 객체   
+	  
+	  // 객체 정렬 : 비교대상 지정(key:price)
+	  arr5.sort(function(x, y) {
+		  if(x.price < y.price)  return -1;
+		  if(x.price == y.price) return  0;
+		  if(x.price > y.price)  return  1;
+	  });
+	  
+	  msg += JSON.stringify(arr5) + '<br>';
+	  document.body.innerHTML = msg;
+   }
+  </script>
+  
+</head>
+<body>
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

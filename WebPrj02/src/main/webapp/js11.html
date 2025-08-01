@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>html5</title>
+  <script>
+     window.onload = function() {
+	    var html = '<h1>자바스크립트 함수들</h1>';
+		//           012345678 9 0 1 2 3 456789012 
+		var text1 = '  Hello 자바스크립트 Hello   ';
+		html   +=  text1.trim()         + '<br>' ;	
+		html   +=  text1.toUpperCase()  + '<br>' ;	
+		html   +=  text1.toLowerCase()  + '<br>' ;			
+		html   +=  text1.length         + '<br>' ;	
+		html   +=  text1.indexOf('l', 4 + 1)  + '<br>' ;	
+		html   +=  text1.lastIndexOf('l')  + '<br>' ;	
+		html   +=  text1.substring(2, 9)  + '<br>'    // 위치로 자른다	 
+		html   +=  text1.substr(11, 7)  + '<br>' ;	  // 갯수로 자른다
+		html   +=  text1.charAt(11)  + '<br>' ;	  
+		html   +=  text1.charCodeAt(11)  + '<br>' ;	  
+		
+	    document.body.innerHTML = html;
+	 }
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
+
+
+

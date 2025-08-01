@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+	window.onload = function(){
+		
+		let today = new Date();
+		//let today = new Date(2025, 11, 25, 0, 0, 0); // 2025-12-25
+		//let today = new Date('2025-12-25 12:00:00'); // 2025-12-25
+		let yyyy  = today.getFullYear();
+		let MM	  = today.getMonth() + 1; // 0~11
+		let dd    = today.getDate();
+		let wd	  = today.getDay();	// 0(일)~6(토)
+		
+		let weekday = ['일', '월', '화', '수', '목', '금', '토'];
+	/*	
+		switch(today.getDay()){
+		case 0 : wd = '일'; break;
+		case 1 : wd = '월'; break;
+		case 2 : wd = '화';	break;
+		case 3 : wd = '수';	break;
+		case 4 : wd = '목';	break;
+		case 5 : wd = '금';	break;
+		case 6 : wd = '토';	break;
+		
+		}
+	*/	
+		let hh     = today.getHours();
+		let mm     = today.getMinutes();
+		let ss     = today.getSeconds();
+		
+		let msg = `${yyyy}년${MM}월 ${dd}일 ${weekday[wd]}요일 ${hh}시 ${mm}분 ${ss}초`;
+		alert(msg)
+		
+	}
+</script>
+</head>
+<body>
+
+</body>
+</html>

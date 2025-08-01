@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	h1, p { border : 2px solid blue; margin : 20px;}
+</style>
+<script>
+	window.onload = function(){
+		document.getElementById('header').onclick = function(){
+			alert('header clicked');
+		}
+		document.getElementById('paragraph').onclick = function(event){
+			console.log(event);
+			event.stopPropagation();
+			alert('paragraph clicked');	
+		}
+	}
+</script>
+</head>
+<body>
+	<h1 id="header">
+		<p id="paragraph">Hello</p>
+	</h1>
+</body>
+</html>

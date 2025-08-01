@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	table	{width : 80% ; margin : 0 auto; margin-top : 40px;}
+	table, td { border : 1px solid black ;
+				border-collapse : collapse;
+	}
+	td		{text-align : center; }
+</style>
+<script>
+	window.onload = function(){
+		const colEl 	 = document.getElementById('column');
+		const rowEl		 = document.getElementById('row');
+		const btnClickEl = document.querySelector('[type="button"]');
+		const outputEl   = document.querySelector('#output');
+		
+		
+		btnClickEl.addEventListener('click', function(){
+			
+			let col = colEl.value;
+			let row = rowEl.value;
+			//alert('click');
+			let html = '';
+			let k = 1 ;
+			html += '<table>';
+			//html += '<tr>';
+			
+			for (let j = 0; j < row; j++){
+				html += '<tr>';
+				for (let i = 0; i < col; i++){
+					html += '<td>' + k + '</td>';
+					k++
+				}
+				html += '</tr>';
+			}
+			
+			//html += '</tr>';
+			html += '</table>';
+			
+			
+			
+			outputEl.innerHTML = html;
+			btnClickEl.removeEventListener('click', arguments.callee) //----- 불려진 함수를 지운다
+			
+		}, {once:false} );	// {once:true} // 한번만 클릭된다
+	}
+</script>
+</head>
+<body>	
+	<input type = "number" id="column" value = "3" />
+	<input type = "number" id= "row" value="2" />
+	<input type = "button" value="click" />
+	<div id="output">
+		<table>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

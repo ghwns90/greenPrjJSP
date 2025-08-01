@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload = function(){
+		let header	=	document.createElement('h1');
+		header.style.border = '2px solid black';
+		header.style.width  = '500px';
+		header.style.color  = 'orange';
+		header.innerText = '펭귄 그림';
+		header.style.textAlign = 'center';
+		header.style.backgroundColor = 'gray';
+		console.log(header);
+		document.body.appendChild(header);
+		
+		let img 		=	document.createElement('img'); // <img/>
+		img.setAttribute('src', 'images/Penguins.jpg');
+		img.setAttribute('width', 500);
+		img.setAttribute('height', 350);
+		img.setAttribute('data-val', 'haha234');
+		document.body.appendChild(img);
+		
+		//alert(img.getAttribute('data-val'));
+		let hr			=	document.createElement('hr');
+		document.body.appendChild(hr);
+		
+		let img2		=	document.createElement('img');
+		img2.src		=	'images/Penguins.jpg';
+		img2.width		=	500;
+		img2.height		=	350;
+		//img2.data-val	=	'haha234'; // -를 쓰면 문법이 오류가 남
+		img2['data-val'] =  'haha234';
+		document.body.appendChild(img2);
+		
+		/*
+		let header2 = '<h1 style="border: 2px solid black; color: orange;">펭귄 그림</h1>'
+		//document.body.appendChild(header2); // appendChild(NodeType) 추가안됨 error
+		
+		document.body.innerHTML += header2;
+		*/
+		
+		const img1 = document.querySelector('#img1');
+		console.log(img1)
+	}
+</script>
+</head>
+<body>
+	<img src="images/Penguins.jpg" width="500" height="350" data-val = "haha123" id = "img1"/>
+	
+</body>
+</html>

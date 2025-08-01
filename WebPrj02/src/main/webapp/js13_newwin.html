@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>html5</title>
+  <style>
+    div {
+	   width  : 360px;
+	   margin : 0 auto;
+	}
+  </style>
+  <script>
+     window.onload = function () {
+	    var zipcode     = document.getElementById("zipcode");
+		var btnClose = document.getElementById('btnClose');
+		btnClose.onclick = function() {
+			//부모폼의 post 에 내 창의 zipcode 값 넘김
+  	        window.opener.post.value = zipcode.value;
+			// Blocked a frame with origin "null" from accessing a cross-origin frame.
+            //   at HTMLInputElement.btnClose.onclick ==> JSP 서버에서 실행
+		    window.close();
+		}
+	 }  
+  </script>
+</head>
+<body>
+ <div id="main">
+   <h1>우편번호 찾기</h1> 
+   우편번호<input type="text" id="zipcode" /><br>
+   <input type="button" value="닫기" id="btnClose" />
+ </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

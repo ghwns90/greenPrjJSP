@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	* { box-sizing : border-box; }
+	#main { width : 80%; margin : 0 auto;}
+	table, th, td {
+		border : 1px solid #333;
+		border-collapse : collapse;
+	}
+	
+	table { width : 100%; }
+	th:nth-of-type(1){ width : 25%; }
+	th:nth-of-type(2){ width : 25%; }
+	th:nth-of-type(3){ width : 25%; }
+	th:nth-of-type(4){ width : 25%; }
+	
+	tr:hover { background-color : yellow; }
+</style>
+<script>
+	//빈 객체 배열
+	let persons = [];
+	
+	function Person(name, email, tel, bdate){
+		this.name  = name
+		this.email = email
+		this.tel   = tel
+		this.bdate = bdate	//	"2025-07-24"
+		let today  = new Date();
+		let byear  = bdate.substr(0,4);	// bdate 에서 앞의 4개(년도)를 짤라줌
+		this.age   = today.getFullYear() - byear;
+	}	
+		
+	Person.prototype.toString = function(){
+		let tag  = '<tr>'
+		tag		+= '<td>' + this.name  + '</td>'
+		tag		+= '<td>' + this.email + '</td>'
+		tag		+= '<td>' + this.tel   + '</td>'
+		tag		+= '<td>' + this.age + '</td>'
+		tag 	+= '</tr>'
+		return tag;
+	}
+	
+	function header(){
+		let tag = `<tr>
+					<th>이름</th>
+					<th>이메일</th>
+					<th>전화</th>
+					<th>나이</th>
+				   </tr>`;
+				   
+		return tag;
+	}
+	
+	
+	function displayList(){
+		const listEl = document.getElementById('list');
+		
+		let tag = '';
+		tag	   += header();
+		
+		for (let i = 0; i < persons.length; i++) {
+			
+			tag += persons[i].toString();
+			
+		}
+		
+		listEl.innerHTML = tag;
+	}
+	
+	window.onload = function (){
+		
+		const btnAddEl = document.getElementById('btnAdd');
+		const name	   = document.getElementById('name');
+		const email    = document.getElementById('email');
+		const tel 	   = document.getElementById('tel');
+		const bdate    = document.getElementById('bdate');
+		
+		btnAddEl.onclick = function(){
+			
+			let person = new Person(name.value, email.value, tel.value, bdate.value);
+			persons.push(person);
+			
+			displayList();
+			
+			const tds = document.querySelectorAll('td');
+			for (let td of tds) {
+				td.onclick = function(e){
+					console.log(e.target)
+					
+				}
+			}
+			
+		}
+	}
+</script>
+</head>
+<body>
+	<div id = "main">
+		<h2 align="center">학생정보</h2>
+		이름  <input type ="text" id  = "name" /> &nbsp;&nbsp;
+		이메일<input type ="email" id = "email" /> &nbsp;&nbsp;
+		전화  <input type ="tel" id   = "tel" /> &nbsp;&nbsp;
+		생일  <input type ="date" id  = "bdate" value = "1995-02-14"/> &nbsp;&nbsp;
+		<input type="button" id = "btnAdd" value = "Add"/> &nbsp;&nbsp;
+		<hr />
+		<table id = "list"></table>
+	</div>
+</body>
+</html>

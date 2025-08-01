@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>html5</title>
+  <style>
+  </style>
+  <script>
+    window.onload = function() {
+       /*	   
+	   var msg = 'Hello\nHello\nHello';
+		alert(msg);
+		var div1 = document.getElementById('div1');
+		//div1.innerHTML  = 'Hello<br>Hello<br>Hello<br>'
+		// div1.innerHTML = msg.replace('\n', '<br>'); // 한번만 교체
+		div1.innerHTML = msg.replace(/\n/g, '<br>'); // 한번만 교체
+		// g : 여러번
+		// i: 대소문자 무시
+		// m : 여러줄  
+		*/
+		var intro = document.getElementById('intro');
+		var btn1  = document.getElementById('btn1');
+		var div1  = document.getElementById('div1');
+		btn1.addEventListener('click', function() {
+							// 정규식 '\n'(줄바꾸기를) '/'로 감싸서 'g' 여러번, 'm' 여러줄 <br>로 바꾼다
+		    //var text = intro.value.replace(/\n/gm, '<br>');
+			
+			// 정규식 대신 replaceAll로 전체를 바꿀 수 있음
+			var text = intro.value.replaceAll('\n', '<br>');
+		    div1.innerHTML = text;
+			
+			var tel = document.getElementById('tel');
+			//var regExp = new RegExp('^\d{3}-\d{3,4}-\d{4}$'); 
+			// 정규식은 /^ 여기 사이에 표시 $/
+			//	\d{3} : d = 숫자, 자리수 {3, 4} = 3~4자리수
+			var regExp  = /^\d{3}-\d{3,4}-\d{4}$/gim;			
+			if (tel.value.match(regExp) != null) { 
+			    alert('Good!'); 
+			 } else { 
+			    alert('Error');
+			 }
+		});
+		
+		
+		
+	}
+  
+  </script>
+</head>
+<body>
+    <input type="text" id="tel" value="0101111-2222" />
+    <textarea id="intro"></textarea><br>
+	<button id="btn1">입력</button><br>
+	<div id="div1"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

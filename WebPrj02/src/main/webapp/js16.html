@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>html5</title>
+  <style>
+  </style>
+  <script>
+     window.onload = function() {
+	     var btn1 = document.getElementById('btn1');
+		 btn1.onclick = function() {
+		     var  regExp = /^\d{3}-\d{3,4}-\d{4}$/;
+//			 var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i; 
+			 // 검증에 사용할 정규식 변수 regExp에 저장
+			 if ('0101234-1111'.match(regExp) != null) { 
+			    alert('Good!'); 
+			 } else { 
+			    alert('Error');
+			 }
+
+
+		     console.log( regExp.test('010-1111-1111')  );
+			 alert( regExp.test('010-1111-1111') );
+		 }
+	 
+	     var form1 = document.getElementById('form1');
+		 form1.onsubmit = function(e) {
+			 var  regExp = /^\d{3}-\d{3,4}-\d{4}$/;
+		     if(regExp.match('010-1111-1111') == null )		 
+				return false;
+			 /*
+			 //e.preventDefault();
+			 
+			 var name = document.getElementById('name');
+			 if(  name.value == ""  ) return false;
+			 // 전화번호 체크 정규식
+			 var  tel     = document.getElementById('tel');
+			 if( !regExp.test(tel.value) ) return false;
+			// return true;
+			 // document.getElementById('form1').submit() 
+			 //// 이 함수는 onsubmit 으로 check 안됨
+			 */
+			 return true;
+		 }		 
+		 
+	 }
+  </script>
+</head>
+<body>
+   <h2>Validation Check</h2>
+   <form id="form1" action="http://www.daum.net" method="GET">
+     이름<input type="text" name="name" id="name" /><br>
+     전화<input type="text" name="tel" id="tel" 
+	    value="010-1234-1111"	 /><br>
+	 <input type="submit" value="전송" />
+	 <input type="image"  src="" />
+	 <button>전송</button>
+	 <input type="button" value="전송" 
+	    onclick="document.getElementById('form1').submit()" />
+	 <input type="button" id="btn1" value="Click" />
+   </form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
