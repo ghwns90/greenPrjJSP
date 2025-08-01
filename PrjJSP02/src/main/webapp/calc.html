@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" ></script>
+<script>
+
+</script>
+</head>
+<body>
+	<h2> 계산기 </h2>
+	<form action = "calcaction.jsp" method = "GET">
+		<input type="number" name="v1" /><br>
+		<input type="number" name="v2" /><br>
+		<select name = "op">
+			<option>+</option>
+			<option>-</option>
+			<option>*</option>
+			<option>/</option>
+		</select><br>
+		<input type="submit" value="계산" />
+	</form>
+	
+	<hr/>
+	
+	<form action = "http://localhost:8080/PrjJSP02/calcaction" method = "GET">
+		<input type="number" name="v1" /><br>
+		<input type="number" name="v2" /><br>
+		<select name = "op">
+			<option>+</option>
+			<option>-</option>
+			<option>*</option>
+			<option>/</option>
+		</select><br>
+		<input type="submit" value="계산" />
+	</form>
+</body>
+</html>
